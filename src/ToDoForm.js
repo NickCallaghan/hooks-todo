@@ -12,10 +12,32 @@ const styles = {
 
 function ToDoForm(props) {
   const { classes } = props;
-  const [newToDo, updateNewToDo] = useInputState("");
+  const [newToDoInput, updateNewToDoInput, resetNewToDoInput] = useInputState(
+    ""
+  );
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.addToDo(newToDoInput);
+    resetNewToDoInput();
+  };
+
   return (
     <Paper className={classes.root}>
-      <TextField value={newToDo} onChange={updateNewToDo} />
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          margin: "1rem 0",
+          padding: "0 0.5rem"
+        }}
+      >
+        <TextField
+          value={newToDoInput}
+          onChange={updateNewToDoInput}
+          label="Add new task"
+          fullWidth
+        />
+      </form>
     </Paper>
   );
 }
