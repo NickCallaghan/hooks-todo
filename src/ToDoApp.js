@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-
 import ToDoForm from "./ToDoForm";
 import ToDoList from "./ToDoList";
-
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/ToolBar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
 import { v4 as uuidv4 } from "uuid";
 
 export default function ToDoApp() {
@@ -31,7 +28,7 @@ export default function ToDoApp() {
 
   const toggleToDo = id => {
     const updatedTodos = todos.map(t =>
-      t.id !== id ? t : { id: t.id, task: t.task, complete: !t.complete }
+      t.id !== id ? t : { ...t, complete: !t.complete }
     );
     setTodos([...updatedTodos]);
   };
