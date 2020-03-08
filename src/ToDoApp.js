@@ -13,10 +13,14 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function ToDoApp() {
   const initialTodos = [
-    { id: 1, task: "Wash the car", complete: false },
-    { id: 2, task: "Wash the van", complete: false },
-    { id: 3, task: "Walk the dog", complete: false },
-    { id: 4, task: "Grow Beard", complete: false }
+    { id: 1, task: "Learn About React Hooks", complete: false },
+    {
+      id: 2,
+      task: "Build To Do List Application using hooks",
+      complete: false
+    },
+    { id: 3, task: "Use Material UI Components", complete: false },
+    { id: 4, task: "Implment Responsive Material UI Grid", complete: false }
   ];
 
   const [todos, setTodos] = useState(initialTodos);
