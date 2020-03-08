@@ -29,8 +29,12 @@ export default function ToDoApp() {
     const updatedTodos = todos.map(t =>
       t.id !== id ? t : { id: t.id, task: t.task, complete: !t.complete }
     );
-    // todo.complete = !todo.complete;
     setTodos([...updatedTodos]);
+  };
+
+  const deleteToDo = id => {
+    const newTodos = todos.filter(t => t.id !== id);
+    setTodos([...newTodos]);
   };
 
   return (
@@ -56,7 +60,11 @@ export default function ToDoApp() {
       >
         <Grid item xs={11} sm={10} md={8} lg={6}>
           <ToDoForm addToDo={addToDo} />
-          <ToDoList todos={todos} toggleToDo={toggleToDo} />
+          <ToDoList
+            todos={todos}
+            toggleToDo={toggleToDo}
+            deleteToDo={deleteToDo}
+          />
         </Grid>
       </Grid>
     </Paper>
