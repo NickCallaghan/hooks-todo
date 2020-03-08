@@ -28,7 +28,10 @@ export default function ToDoListItem(props) {
   };
 
   return (
-    <div className="ToDoListItem">
+    <div
+      className="ToDoListItem"
+      style={{ textDecoration: complete ? "line-through" : "none" }}
+    >
       <ListItem>
         <Checkbox checked={complete} color="primary" onClick={handleCheck} />
         {editing ? (
@@ -37,11 +40,11 @@ export default function ToDoListItem(props) {
           <ListItemText>{task}</ListItemText>
         )}
         <ListItemSecondaryAction>
-          <IconButton onClick={handleEditToggle}>
+          <IconButton onClick={handleEditToggle} aria-label="Edit To Do">
             <EditIcon />
           </IconButton>
 
-          <IconButton onClick={handleDelete}>
+          <IconButton onClick={handleDelete} aria-label="Delete To Do">
             <DeleteIcon />
           </IconButton>
         </ListItemSecondaryAction>
