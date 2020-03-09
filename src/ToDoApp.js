@@ -34,7 +34,6 @@ export default function ToDoApp() {
   };
 
   const updateToDo = (updatedText, id) => {
-    console.log("it worked, This is update");
     const updatedTodos = todos.map(t =>
       t.id !== id ? t : { ...t, task: updatedText }
     );

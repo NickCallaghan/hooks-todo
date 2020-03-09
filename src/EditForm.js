@@ -4,7 +4,7 @@ import useInputState from "./hooks/useInputState";
 
 export default function EditForm(props) {
   const { task, id, updateToDo, toggleEditing } = props;
-  const [inputValue, updateInputValue] = useInputState();
+  const [inputValue, updateInputValue] = useInputState(task);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -13,8 +13,13 @@ export default function EditForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField value={inputValue} onChange={updateInputValue} fullWidth />
+    <form onSubmit={handleSubmit} style={{ width: "100%", marginLeft: "1rem" }}>
+      <TextField
+        value={inputValue}
+        onChange={updateInputValue}
+        fullWidth
+        autoFocus
+      />
     </form>
   );
 }

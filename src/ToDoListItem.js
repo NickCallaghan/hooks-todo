@@ -36,6 +36,7 @@ export default function ToDoListItem(props) {
         {editing ? (
           <EditForm
             id={id}
+            key={id}
             task={task}
             updateToDo={updateToDo}
             toggleEditing={toggleEditing}
