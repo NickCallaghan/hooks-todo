@@ -1,5 +1,4 @@
 import React from "react";
-import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -32,7 +31,7 @@ export default function ToDoListItem(props) {
       className="ToDoListItem"
       style={{ textDecoration: complete ? "line-through" : "none" }}
     >
-      <ListItem>
+      <ListItem style={{ height: "64px" }}>
         {editing ? (
           <EditForm
             id={id}
@@ -63,7 +62,6 @@ export default function ToDoListItem(props) {
           </>
         )}
       </ListItem>
-      <Divider />
     </div>
   );
 }

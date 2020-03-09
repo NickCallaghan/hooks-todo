@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ToDoForm from "./ToDoForm";
 import ToDoList from "./ToDoList";
 import Paper from "@material-ui/core/Paper";
@@ -20,7 +20,10 @@ export default function ToDoApp() {
     { id: 4, task: "Implment Responsive Material UI Grid", complete: false }
   ];
 
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState(
+    //Retreive todos from localstorage or load intial list
+    JSON.parse(window.localStorage.getItem("todos")) || initialTodos
+  );
 
   const addToDo = newToDoText => {
     setTodos([...todos, { id: uuidv4(), task: newToDoText, complete: false }]);
@@ -44,6 +47,10 @@ export default function ToDoApp() {
     const newTodos = todos.filter(t => t.id !== id);
     setTodos([...newTodos]);
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <Paper
