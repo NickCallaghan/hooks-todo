@@ -8,10 +8,11 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import useToggle from "./hooks/useToggle";
-import { TextField } from "@material-ui/core/";
+import EditForm from "./EditForm";
 
 export default function ToDoListItem(props) {
   const { id, task, complete } = props.todo;
+  const { updateToDo } = props;
   const [editing, toggleEditing] = useToggle();
 
   const handleCheck = () => {
@@ -24,7 +25,6 @@ export default function ToDoListItem(props) {
 
   const handleEditToggle = () => {
     toggleEditing();
-    console.log(`Editing: ${editing}`);
   };
 
   return (
@@ -33,21 +33,34 @@ export default function ToDoListItem(props) {
       style={{ textDecoration: complete ? "line-through" : "none" }}
     >
       <ListItem>
-        <Checkbox checked={complete} color="primary" onClick={handleCheck} />
         {editing ? (
-          <TextField value={task} />
+          <EditForm
+            id={id}
+            task={task}
+            updateToDo={updateToDo}
+            toggleEditing={toggleEditing}
+          />
         ) : (
-          <ListItemText>{task}</ListItemText>
-        )}
-        <ListItemSecondaryAction>
-          <IconButton onClick={handleEditToggle} aria-label="Edit To Do">
-            <EditIcon />
-          </IconButton>
+          <>
+            <Checkbox
+              checked={complete}
+              color="primary"
+              onClick={handleCheck}
+            />
 
-          <IconButton onClick={handleDelete} aria-label="Delete To Do">
-            <DeleteIcon />
-          </IconButton>
-        </ListItemSecondaryAction>
+            <ListItemText>{task}</ListItemText>
+
+            <ListItemSecondaryAction>
+              <IconButton onClick={handleEditToggle} aria-label="Edit To Do">
+                <EditIcon />
+              </IconButton>
+
+              <IconButton onClick={handleDelete} aria-label="Delete To Do">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </>
+        )}
       </ListItem>
       <Divider />
     </div>

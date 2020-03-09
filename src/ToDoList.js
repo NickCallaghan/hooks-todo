@@ -4,7 +4,7 @@ import List from "@material-ui/core/List";
 import ToDoListItem from "./ToDoListItem";
 
 export default function ToDoList(props) {
-  const { todos, toggleToDo, deleteToDo } = props;
+  const { todos, toggleToDo, deleteToDo, updateToDo } = props;
   return (
     <Paper>
       <List>
@@ -14,6 +14,7 @@ export default function ToDoList(props) {
             key={todo.id}
             toggleToDo={toggleToDo}
             deleteToDo={deleteToDo}
+            updateToDo={updateToDo}
           />
         ))}
       </List>

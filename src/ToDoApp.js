@@ -33,6 +33,14 @@ export default function ToDoApp() {
     setTodos([...updatedTodos]);
   };
 
+  const updateToDo = (updatedText, id) => {
+    console.log("it worked, This is update");
+    const updatedTodos = todos.map(t =>
+      t.id !== id ? t : { ...t, task: updatedText }
+    );
+    setTodos([...updatedTodos]);
+  };
+
   const deleteToDo = id => {
     const newTodos = todos.filter(t => t.id !== id);
     setTodos([...newTodos]);
@@ -65,6 +73,7 @@ export default function ToDoApp() {
             todos={todos}
             toggleToDo={toggleToDo}
             deleteToDo={deleteToDo}
+            updateToDo={updateToDo}
           />
         </Grid>
       </Grid>
