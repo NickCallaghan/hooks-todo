@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ToDoForm from "./ToDoForm";
 import ToDoList from "./ToDoList";
 import Paper from "@material-ui/core/Paper";
@@ -6,7 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/ToolBar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { v4 as uuidv4 } from "uuid";
+import useToDoState from "./hooks/useTodoState";
 
 export default function ToDoApp() {
   const initialTodos = [
@@ -20,33 +20,9 @@ export default function ToDoApp() {
     { id: 4, task: "Implment Responsive Material UI Grid", complete: false }
   ];
 
-  const [todos, setTodos] = useState(
-    //Retreive todos from localstorage or load intial list
+  const { todos, addToDo, deleteToDo, updateToDo, toggleToDo } = useToDoState(
     JSON.parse(window.localStorage.getItem("todos")) || initialTodos
   );
-
-  const addToDo = newToDoText => {
-    setTodos([...todos, { id: uuidv4(), task: newToDoText, complete: false }]);
-  };
-
-  const toggleToDo = id => {
-    const updatedTodos = todos.map(t =>
-      t.id !== id ? t : { ...t, complete: !t.complete }
-    );
-    setTodos([...updatedTodos]);
-  };
-
-  const updateToDo = (updatedText, id) => {
-    const updatedTodos = todos.map(t =>
-      t.id !== id ? t : { ...t, task: updatedText }
-    );
-    setTodos([...updatedTodos]);
-  };
-
-  const deleteToDo = id => {
-    const newTodos = todos.filter(t => t.id !== id);
-    setTodos([...newTodos]);
-  };
 
   useEffect(() => {
     window.localStorage.setItem("todos", JSON.stringify(todos));
