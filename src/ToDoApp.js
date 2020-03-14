@@ -24,10 +24,6 @@ export default function ToDoApp() {
     JSON.parse(window.localStorage.getItem("todos")) || initialTodos
   );
 
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
   return (
     <Paper
       style={{
