@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TextField } from "@material-ui/core/";
 import { Paper } from "@material-ui/core/";
 import { withStyles } from "@material-ui/styles/";
 import useInputState from "./hooks/useInputState";
+import { ToDosContext } from "./contexts/ToDosContext";
 
 const styles = {
   root: {
@@ -16,9 +17,11 @@ function ToDoForm(props) {
     ""
   );
 
+  const { addToDo } = useContext(ToDosContext);
+
   const handleSubmit = e => {
     e.preventDefault();
-    props.addToDo(newToDoInput);
+    addToDo(newToDoInput);
     resetNewToDoInput();
   };
 

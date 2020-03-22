@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -8,18 +8,19 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import useToggle from "./hooks/useToggle";
 import EditForm from "./EditForm";
+import { ToDosContext } from "./contexts/ToDosContext";
 
 export default function ToDoListItem(props) {
   const { id, task, complete } = props.todo;
-  const { updateToDo } = props;
+  const { updateToDo, deleteToDo, toggleToDo } = useContext(ToDosContext);
   const [editing, toggleEditing] = useToggle();
 
   const handleCheck = () => {
-    props.toggleToDo(id);
+    toggleToDo(id);
   };
 
   const handleDelete = () => {
-    props.deleteToDo(id);
+    deleteToDo(id);
   };
 
   const handleEditToggle = () => {
@@ -37,7 +38,6 @@ export default function ToDoListItem(props) {
             id={id}
             key={id}
             task={task}
-            updateToDo={updateToDo}
             toggleEditing={toggleEditing}
           />
         ) : (
