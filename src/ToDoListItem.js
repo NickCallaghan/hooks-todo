@@ -12,15 +12,15 @@ import { ToDosContext } from "./contexts/ToDosContext";
 
 export default function ToDoListItem(props) {
   const { id, task, complete } = props.todo;
-  const { updateToDo, deleteToDo, toggleToDo } = useContext(ToDosContext);
+  const { dispatch } = useContext(ToDosContext);
   const [editing, toggleEditing] = useToggle();
 
   const handleCheck = () => {
-    toggleToDo(id);
+    dispatch({ type: "TOGGLE", id: id });
   };
 
   const handleDelete = () => {
-    deleteToDo(id);
+    dispatch({ type: "REMOVE", id: id });
   };
 
   const handleEditToggle = () => {

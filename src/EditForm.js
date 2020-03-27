@@ -5,12 +5,12 @@ import { ToDosContext } from "./contexts/ToDosContext";
 
 export default function EditForm(props) {
   const { task, id, toggleEditing } = props;
-  const { updateToDo } = useContext(ToDosContext);
+  const { dispatch } = useContext(ToDosContext);
   const [inputValue, updateInputValue] = useInputState(task);
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateToDo(inputValue, id);
+    dispatch({ type: "EDIT", task: inputValue, id: id });
     toggleEditing();
   };
 

@@ -17,11 +17,11 @@ function ToDoForm(props) {
     ""
   );
 
-  const { addToDo } = useContext(ToDosContext);
+  const { dispatch } = useContext(ToDosContext);
 
   const handleSubmit = e => {
     e.preventDefault();
-    addToDo(newToDoInput);
+    dispatch({ type: "ADD", task: newToDoInput });
     resetNewToDoInput();
   };
 
