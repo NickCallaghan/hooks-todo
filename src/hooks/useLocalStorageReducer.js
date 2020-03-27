@@ -13,7 +13,7 @@ function useLocalStorageStateReducer(key, defaultVal, reducer) {
 
   useEffect(() => {
     window.localStorage.setItem(key, JSON.stringify(state));
-  }, [state]);
+  }, [state, key]);
 
   return [state, dispatch];
 }
