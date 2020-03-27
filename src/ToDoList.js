@@ -6,7 +6,7 @@ import Divider from "@material-ui/core/Divider";
 import { ToDosContext } from "./contexts/ToDosContext";
 
 export default function ToDoList(props) {
-  const { todos } = useContext(ToDosContext);
+  const todos = useContext(ToDosContext);
   return (
     <Paper>
       <List>

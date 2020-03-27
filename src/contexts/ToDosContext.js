@@ -19,8 +19,8 @@ export default function ToDosProvider(props) {
   const [todos, dispatch] = useReducer(todosReducer, initialTodos);
 
   return (
-    <ToDosContext.Provider value={{ todos }}>
-      <DispatchContext.Provider value={{ dispatch }}>
+    <ToDosContext.Provider value={todos}>
+      <DispatchContext.Provider value={dispatch}>
         {props.children}
       </DispatchContext.Provider>
     </ToDosContext.Provider>

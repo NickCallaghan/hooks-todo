@@ -12,7 +12,7 @@ import { DispatchContext } from "./contexts/ToDosContext";
 
 export default function ToDoListItem(props) {
   const { id, task, complete } = props.todo;
-  const { dispatch } = useContext(DispatchContext);
+  const dispatch = useContext(DispatchContext);
   const [editing, toggleEditing] = useToggle();
 
   const handleCheck = () => {

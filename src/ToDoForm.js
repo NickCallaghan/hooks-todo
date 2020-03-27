@@ -17,7 +17,7 @@ function ToDoForm(props) {
     ""
   );
 
-  const { dispatch } = useContext(DispatchContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleSubmit = e => {
     e.preventDefault();
