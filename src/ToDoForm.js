@@ -3,7 +3,7 @@ import { TextField } from "@material-ui/core/";
 import { Paper } from "@material-ui/core/";
 import { withStyles } from "@material-ui/styles/";
 import useInputState from "./hooks/useInputState";
-import { ToDosContext } from "./contexts/ToDosContext";
+import { DispatchContext } from "./contexts/ToDosContext";
 
 const styles = {
   root: {
@@ -17,7 +17,7 @@ function ToDoForm(props) {
     ""
   );
 
-  const { dispatch } = useContext(ToDosContext);
+  const { dispatch } = useContext(DispatchContext);
 
   const handleSubmit = e => {
     e.preventDefault();
