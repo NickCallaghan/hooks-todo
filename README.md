@@ -6,6 +6,8 @@ This simple To Do list app was built to learn functional comonents and react hoo
 
 - The useContext hook was used to create a shared context for ToDos
 - useReducer hook was used to give the todos context a recucer function to manage todos
+- memo was used to prevent unnecessary re-renders of todos
+- added a custom hook useLocalStorageReducer to save todos to local storage
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
