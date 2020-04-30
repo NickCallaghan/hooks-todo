@@ -3,12 +3,17 @@ import { TextField } from "@material-ui/core/";
 import useInputState from "./hooks/useInputState";
 import { DispatchContext } from "./contexts/ToDosContext";
 
-export default function EditForm(props) {
-  const { task, id, toggleEditing } = props;
+type Props = {
+  task: string;
+  id: string;
+  toggleEditing: () => void;
+};
+
+const EditForm = ({ task, id, toggleEditing }: Props) => {
   const dispatch = useContext(DispatchContext);
   const [inputValue, updateInputValue] = useInputState(task);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch({ type: "EDIT", task: inputValue, id: id });
     toggleEditing();
@@ -24,4 +29,6 @@ export default function EditForm(props) {
       />
     </form>
   );
-}
+};
+
+export default EditForm;

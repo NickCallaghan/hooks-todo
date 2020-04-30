@@ -8,17 +8,17 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import ToDosProvider from "./contexts/ToDosContext";
 
-export default function ToDoApp() {
+const ToDoApp: React.FC = () => {
   return (
     <Paper
       style={{
-        paddigTop: 0,
+        paddingTop: 0,
         margin: 0,
         height: "100vh",
         backgroundColor: "#fafafa",
       }}
     >
-      <AppBar color="primary" postion="static" style={{ height: "64x" }}>
+      <AppBar color="primary" position="static" style={{ height: "64x" }}>
         <ToolBar>
           <Typography color="inherit">To Do App with React Hooks</Typography>
         </ToolBar>
@@ -39,4 +39,6 @@ export default function ToDoApp() {
       </Grid>
     </Paper>
   );
-}
+};
+
+export default ToDoApp;

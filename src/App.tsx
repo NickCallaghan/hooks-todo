@@ -3,12 +3,12 @@ import ToDoApp from "./ToDoApp";
 
 import "./App.css";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <ToDoApp />
     </div>
   );
-}
+};
 
 export default App;
