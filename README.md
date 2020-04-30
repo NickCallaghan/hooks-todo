@@ -9,7 +9,7 @@ This simple To Do list app was built to learn functional comonents and react hoo
 - memo was used to prevent unnecessary re-renders of todos
 - added a custom hook useLocalStorageReducer to save todos to local storage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A demo is available [here](https://nickcallaghan.github.io/hooks-todo/).
 
 ## Available Scripts
 
