@@ -1,6 +1,12 @@
 import { useReducer, useEffect } from "react";
+import { Todos } from "../types/types";
+import { Actions } from "./../reducers/todoReducer";
 
-function useLocalStorageStateReducer(key, defaultVal, reducer) {
+function useLocalStorageStateReducer(
+  key: string,
+  defaultVal: Todos,
+  reducer: React.Reducer<Todos, Actions>
+) {
   const [state, dispatch] = useReducer(reducer, defaultVal, () => {
     let val;
     try {
