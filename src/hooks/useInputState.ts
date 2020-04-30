@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-export default (initialValue: String) => {
+const useInputState = (
+  initialValue: string
+): [string, (e: React.ChangeEvent<HTMLInputElement>) => void, () => void] => {
   const [value, setValue] = useState(initialValue);
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
@@ -10,3 +12,5 @@ export default (initialValue: String) => {
   };
   return [value, handleChange, reset];
 };
+
+export default useInputState;

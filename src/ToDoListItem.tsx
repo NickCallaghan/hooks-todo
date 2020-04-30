@@ -10,13 +10,12 @@ import useToggle from "./hooks/useToggle";
 import EditForm from "./EditForm";
 import { DispatchContext } from "./contexts/ToDosContext";
 import { Todo } from "./types/types";
-import { Actions } from "./reducers/todoReducer";
 
-// type Props = {
-//   todo: Todo;
-// };
+type Props = {
+  todo: Todo;
+};
 
-function ToDoListItem({ todo }) {
+const ToDoListItem: React.FC<Props> = ({ todo }) => {
   const { id, task, complete } = todo;
   const dispatch = useContext(DispatchContext);
   const [editing, toggleEditing] = useToggle();
@@ -70,6 +69,6 @@ function ToDoListItem({ todo }) {
       </ListItem>
     </div>
   );
-}
+};
 
 export default memo(ToDoListItem);

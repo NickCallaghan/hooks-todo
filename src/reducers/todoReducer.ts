@@ -2,12 +2,12 @@ import { v4 as uuidv4 } from "uuid";
 import { Todos } from "../types/types";
 
 export type Actions =
-  | { type: "ADD"; task: String }
-  | { type: "TOGGLE"; id: String }
-  | { type: "EDIT"; task: String; id: String }
-  | { type: "REMOVE"; id: String };
+  | { type: "ADD"; task: string }
+  | { type: "TOGGLE"; id: string }
+  | { type: "EDIT"; task: string; id: String }
+  | { type: "REMOVE"; id: string };
 
-const todoReducer = (todos: Todos, action: Actions) => {
+const todoReducer: React.Reducer<Todos, Actions> = (todos, action) => {
   switch (action.type) {
     case "ADD":
       return [...todos, { id: uuidv4(), task: action.task, complete: false }];

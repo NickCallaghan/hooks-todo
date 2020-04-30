@@ -5,7 +5,7 @@ import ToDoListItem from "./ToDoListItem";
 import Divider from "@material-ui/core/Divider";
 import { ToDosContext } from "./contexts/ToDosContext";
 
-export default function ToDoList(props) {
+const ToDoList: React.FC = () => {
   const todos = useContext(ToDosContext);
   return (
     <Paper>
@@ -19,4 +19,6 @@ export default function ToDoList(props) {
       </List>
     </Paper>
   );
-}
+};
+
+export default ToDoList;

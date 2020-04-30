@@ -15,13 +15,15 @@ import useLocalStorageReducer from "./useLocalStorageReducer";
 //   };
 // }
 
-function useTodoState(intialTodos: Todos) {
+const useTodoState = (
+  intialTodos: Todos
+): { todos: Todos; dispatch: React.Dispatch<any> } => {
   const [todos, dispatch] = useReducer(todosReducer, intialTodos);
 
   return {
     todos,
     dispatch,
   };
-}
+};
 
 export default useTodoState;

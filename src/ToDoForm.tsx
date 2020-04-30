@@ -7,19 +7,22 @@ import { DispatchContext } from "./contexts/ToDosContext";
 
 const styles = {
   root: {
-    marginTop: 64
-  }
+    marginTop: 64,
+  },
 };
 
-function ToDoForm(props) {
-  const { classes } = props;
+type Props = {
+  classes: any;
+};
+
+const ToDoForm: React.FC<Props> = ({ classes }) => {
   const [newToDoInput, updateNewToDoInput, resetNewToDoInput] = useInputState(
     ""
   );
 
   const dispatch = useContext(DispatchContext);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch({ type: "ADD", task: newToDoInput });
     resetNewToDoInput();
@@ -31,7 +34,7 @@ function ToDoForm(props) {
         onSubmit={handleSubmit}
         style={{
           margin: "1rem 0",
-          padding: "0 0.5rem"
+          padding: "0 0.5rem",
         }}
       >
         <TextField
@@ -43,6 +46,6 @@ function ToDoForm(props) {
       </form>
     </Paper>
   );
-}
+};
 
 export default withStyles(styles)(ToDoForm);
