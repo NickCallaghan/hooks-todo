@@ -1,8 +1,9 @@
 import { useState } from "react";
-export default initialValue => {
+
+export default (initialValue: String) => {
   const [value, setValue] = useState(initialValue);
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setValue(e.currentTarget.value);
   };
   const reset = () => {
     setValue("");

@@ -9,9 +9,11 @@ import EditIcon from "@material-ui/icons/Edit";
 import useToggle from "./hooks/useToggle";
 import EditForm from "./EditForm";
 import { DispatchContext } from "./contexts/ToDosContext";
+// import { Todo } from "./types/types";
+// import { Actions } from "./reducers/todoReducer";
 
-function ToDoListItem(props) {
-  const { id, task, complete } = props.todo;
+function ToDoListItem({ todo }) {
+  const { id, task, complete } = todo;
   const dispatch = useContext(DispatchContext);
   const [editing, toggleEditing] = useToggle();
 

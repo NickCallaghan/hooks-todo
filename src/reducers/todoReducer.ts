@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Todos } from "../types/types";
 
-type Actions =
+export type Actions =
   | { type: "ADD"; task: String }
   | { type: "TOGGLE"; id: String }
   | { type: "EDIT"; task: String; id: String }

@@ -6,4 +6,4 @@ export type Todo = {
   complete: Boolean;
 };
 
-export type Todos = [Todo];
+export type Todos = Array<Todo>;
