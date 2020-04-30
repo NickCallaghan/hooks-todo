@@ -1,4 +1,4 @@
-# Simple To Do list with React Hooks and Material UI Components
+# Simple To Do list with React Hooks, TypeScript and Material UI Components
 
 ## Introduction
 
